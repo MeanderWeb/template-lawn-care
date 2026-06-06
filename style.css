@@ -1,0 +1,12 @@
+/* Lawn Care — Color overrides only. All structure in _shared/ */
+@import url('css/base.css');
+@import url('css/components.css');
+
+:root {
+  --clr-primary:    #166534;
+  --clr-primary-dk: #0f4724;
+  --clr-accent:     #f59e0b;
+}
+
+/* Amber accent: use dark text for legibility */
+.btn-accent { color: var(--clr-gray-900); }
