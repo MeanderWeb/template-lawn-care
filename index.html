@@ -10,7 +10,7 @@
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="[BUSINESS_NAME] | [CITY], [STATE]">
   <meta property="og:description" content="Lawn care and landscaping in Cape Coral, FL. Weekly maintenance, irrigation, free estimates. Licensed &amp; insured.">
-  <meta property="og:url"         content="https://www.greenedgelawn.com">
+  <meta property="og:url"         content="[OG_URL]">
   <meta property="og:site_name"   content="[BUSINESS_NAME]">
 
   <!-- Google Fonts: Inter -->
@@ -50,7 +50,7 @@
 ═══════════════════════════════════════════ -->
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#" class="logo">Green<span>Edge</span></a>
+    <a href="#" class="logo">[BUSINESS_NAME]</a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="nav-menu" aria-label="Main navigation">
@@ -155,7 +155,7 @@
   <div class="container about-inner">
     <div class="about-text">
       <span class="section-label">About Us</span>
-      <h2 class="section-title">Cape Coral's Lawn Care Specialists Since [YEAR_FOUNDED]</h2>
+      <h2 class="section-title">Cape Coral's Lawn Care Specialists <span class="since">Since <span class="since-year">[YEAR_FOUNDED]</span></span></h2>
       <p>Green Edge has been maintaining lawns across Cape Coral since 2012. We know Florida soil, we know Florida grass, and we know what it takes to keep a lawn looking great in the heat, rain, and salt air of Southwest Florida.</p>
       <p>We keep it simple — show up on schedule, do excellent work, and communicate clearly. No surprise charges, no broken promises, no disappearing acts. Just reliable lawn care you can count on every week.</p>
       <p class="brand-line">Proud [BRAND_1] &amp; [BRAND_2] equipment partner — commercial-grade tools for professional results.</p>
@@ -286,11 +286,12 @@
       <a href="#" class="footer-logo">[BUSINESS_NAME]</a>
       <p class="footer-tagline">Cape Coral's Lawn Care Specialists</p>
       <p>Licensed &amp; Insured · Serving Lee County</p>
-      <p class="license-line">License # [LICENSE_NUMBER]</p>
+      <p class="license-line"><span class="license">[LICENSE_NUMBER]</span></p>
       <div class="footer-contact">
         <a href="tel:[PHONE]">[PHONE]</a>
         <a href="mailto:[EMAIL]">[EMAIL]</a>
-        <span>[ADDRESS], [CITY], [STATE] [ZIP]</span>
+        <span class="addr-street">[ADDRESS]</span>
+          <span class="addr-city">[CITY], [STATE] [ZIP]</span>
       </div>
     </div>
     <div class="footer-nav">
@@ -318,7 +319,10 @@
       <p>Friday: 7 AM – 4 PM</p>
       <p>Saturday: By Appointment</p>
       <p>Sunday: Closed</p>
-      <p class="footer-address">[ADDRESS]<br>[CITY], [STATE] [ZIP]</p>
+      <p class="footer-address">
+        <span class="addr-street">[ADDRESS]</span>
+        <span class="addr-city">[CITY], [STATE] [ZIP]</span>
+      </p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -328,6 +332,20 @@
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('.license').forEach(el => {
+    if (!el.textContent.trim()) el.style.display = 'none';
+  });
+
+  document.querySelectorAll('.addr-street').forEach(el => {
+    if (!el.textContent.trim()) el.style.display = 'none';
+  });
+
+  document.querySelectorAll('.since-year').forEach(el => {
+    if (!el.textContent.trim()) el.closest('.since').remove();
+  });
+</script>
 </body>
 </html>
